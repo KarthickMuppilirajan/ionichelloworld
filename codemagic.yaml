@@ -1,3 +1,4 @@
+workflows:
  ionic-capacitor-android-app:
         name: Ionic App
         environment:
