@@ -22,19 +22,19 @@ workflows:
     #     artifacts:
     #         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
     #         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
-    ionic-capacitor-android-app:
-        name: Ionic App
-        environment:
-            node: latest
-        scripts:
-            - npm install     
-            #- npx cap sync
-            - |
-                # build Android
-                cd android
-                ./gradlew assembleDebug                
-        artifacts:
-            - android/app/build/outputs/**/*.apk
+    # ionic-capacitor-android-app:
+    #     name: Ionic App
+    #     environment:
+    #         node: latest
+    #     scripts:
+    #         - npm install     
+    #         - npm cap sync
+    #         - |
+    #             # build Android
+    #             cd android
+    #             ./gradlew assembleDebug                
+    #     artifacts:
+    #         - android/app/build/outputs/**/*.apk
     # Ionic Cordova workflows
     # ionic-cordova-ios-app:
     #     name: Ionic Cordova iOS App
@@ -61,22 +61,22 @@ workflows:
     #     artifacts:
     #         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
     #         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
-    # ionic-cordova-android-app:
-    #     name: Ionic Cordova Android App
-    #     environment:
-    #         node: latest
-    #     scripts: 
-    #         - |
-    #             # install dependencies and update to Cordova version 9
-    #             npm install
-    #             cvm install 9.0.0
-    #             cvm use 9.0.0                
-    #         - |
-    #             # Setup Cordova Android platform
-    #             ionic cordova platform remove android --nosave
-    #             ionic cordova platform add android --confirm --no-interactive --noresources                
-    #         - |
-    #             # Build Android Cordova App
-    #             script: ionic cordova build android --debug --no-interactive --device                
-    #     artifacts:
-    #         - platforms/android/app/build/outputs/**/*.apk
+    ionic-cordova-android-app:
+        name: Ionic Cordova Android App
+        environment:
+            node: latest
+        scripts: 
+            - |
+                # install dependencies and update to Cordova version 9
+                npm install
+                cvm install 9.0.0
+                cvm use 9.0.0                
+            - |
+                # Setup Cordova Android platform
+                ionic cordova platform remove android --nosave
+                ionic cordova platform add android --confirm --no-interactive --noresources                
+            - |
+                # Build Android Cordova App
+                script: ionic cordova build android --debug --no-interactive --device                
+        artifacts:
+            - platforms/android/app/build/outputs/**/*.apk
