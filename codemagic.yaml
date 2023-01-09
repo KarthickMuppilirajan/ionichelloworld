@@ -2,7 +2,7 @@
 # Please review and update values in curly braces
 # Remove or comment out the workflows you don't require
 
-workflows:
+#workflows:
     # Ionic Capacitor workflows
     # ionic-capacitor-ios-app:
     #     name: Ionic App
@@ -61,10 +61,10 @@ workflows:
     #     artifacts:
     #         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
     #         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
-    ionic-cordova-android-app:
-        name: Ionic Cordova Android App
-        environment:
-            node: latest
+    # ionic-cordova-android-app:
+    #     name: Ionic Cordova Android App
+    #     environment:
+    #         node: latest
         # scripts: 
         #     - |
         #         npm install
@@ -80,6 +80,7 @@ workflows:
         # artifacts:
         #     - platforms/android/app/build/outputs/**/*.apk
 
+workflows:
 ionic-cordova-android-app:
     android-workflow:
         name: Ionic Cordova Android Workflow
