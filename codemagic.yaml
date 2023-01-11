@@ -81,6 +81,8 @@
         #     - platforms/android/app/build/outputs/**/*.apk
 
 workflows:
+android-workflow:
+name: Ionic-Android-Cordova
 scripts:
     - name: Install npm dependencies and update Cordova version
       script: | 
