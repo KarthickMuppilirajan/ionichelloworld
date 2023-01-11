@@ -115,8 +115,8 @@ scripts:
           -storepass $CM_KEYSTORE_PASSWORD \
           -keypass $CM_KEY_PASSWORD \
           $APK_PATH $CM_KEY_ALIAS         
-  artifacts:
-    - platforms/android/app/build/outputs/**/*.apk
+artifacts:
+- platforms/android/app/build/outputs/**/*.apk
     publishing:
       email:
         recipients:
