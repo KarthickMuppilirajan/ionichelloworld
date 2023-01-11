@@ -134,7 +134,7 @@
 #       - build/outputs/**/**/*.apk
 
   workflows:
-    android-workflow:
+    ionic-cordova-android-workflow:
       name: Ionic-Android-Cordova
       environment:
         android_signing:
