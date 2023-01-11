@@ -135,7 +135,7 @@
 
   workflows:
     android-workflow:
-      name: Android workflow
+      name: Ionic-Android-Cordova
       environment:
         android_signing:
           - keystore_reference
