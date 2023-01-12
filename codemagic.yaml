@@ -129,12 +129,10 @@ workflows:
   android-app:
     name: Android App
     scripts: |
-      # - ./gradlew assembleDebug
       npm install
-      npm ci ci # equivalent of npm install for CI systems.
-              # Requires package-lock.json or npm-shrinkwrap.json to be present
-      # cvm install 9.0.0
-      # cvm use 9.0.0
+      npm ci ci 
+      cvm install 9.0.0
+      cvm use 9.0.0
       npm install -g ionic
       ionic info    
     artifacts:
