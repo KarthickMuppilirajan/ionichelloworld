@@ -128,13 +128,16 @@
 workflows:
   android-app:
     name: Android App
-    scripts: |
-      npm install
-      npm ci ci 
-      cvm install 9.0.0
-      cvm use 9.0.0
-      npm install -g ionic
-      ionic info    
+    scripts:
+        - name: Install dependencies
+          script: |
+            npm install
+            npm ci ci # equivalent of npm install for CI systems.
+              # Requires package-lock.json or npm-shrinkwrap.json to be present
+            cvm install 9.0.0
+            cvm use 9.0.0
+            npm install -g ionic
+            ionic info        
     artifacts:
       - build/outputs/**/**/*.apk
 
@@ -152,16 +155,16 @@ workflows:
   #     cache:
   #       cache_paths:
   #         - $CM_BUILD_DIR/node_modules
-  #     scripts:
-  #       - name: Install dependencies
-          # script: |
-            # npm install
-            # npm ci ci # equivalent of npm install for CI systems.
-            #   # Requires package-lock.json or npm-shrinkwrap.json to be present
-            # cvm install 9.0.0
-            # cvm use 9.0.0
-            # npm install -g ionic
-            # ionic info        
+      # scripts:
+      #   - name: Install dependencies
+      #     script: |
+      #       npm install
+      #       npm ci ci # equivalent of npm install for CI systems.
+      #         # Requires package-lock.json or npm-shrinkwrap.json to be present
+      #       cvm install 9.0.0
+      #       cvm use 9.0.0
+      #       npm install -g ionic
+      #       ionic info        
   #       - name: Add Android platform
   #         script: |
   #           set -x
