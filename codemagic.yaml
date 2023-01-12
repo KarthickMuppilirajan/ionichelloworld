@@ -128,7 +128,7 @@
 workflows:
   android-app:
     name: Android App
-    scripts:
+    scripts: |
       # - ./gradlew assembleDebug
       npm install
       npm ci ci # equivalent of npm install for CI systems.
