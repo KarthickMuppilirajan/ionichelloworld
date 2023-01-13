@@ -3,9 +3,7 @@ workflows:
     name: My workflow name       # workflow name displayed in Codemagic UI
     instance_type: mac_mini_m1   
 		scripts: |
-			- name: Install npm dependencies and update Cordova version
-			  script: | 
-				npm install
+			 	npm install
 				npm ci # equivalent of npm install for CI systems.
 					   # Requires package-lock.json or npm-shrinkwrap.json to be present
 				cvm install 9.0.0
