@@ -201,8 +201,8 @@
 
 workflows:
     android-workflow-id:
-    name: Android Sample Workflow
-	  instance_type: windows
+      name: Android Sample Workflow
+	    instance_type: Linux
 		
 		environment:
 		  android_signing:
