@@ -125,21 +125,22 @@
 #         success: true
 #         failure: false
 
-workflows:
-  android-app:
-    name: Android App
-    scripts:
-        - name: Install dependencies
-          script: |
-            npm install
-            npm ci ci # equivalent of npm install for CI systems.
-              # Requires package-lock.json or npm-shrinkwrap.json to be present
-            cvm install 9.0.0
-            cvm use 9.0.0
-            npm install -g ionic
-            ionic info        
-    artifacts:
-      - build/outputs/**/**/*.apk
+# workflows:
+#   android-app:
+#     name: Android App
+#     instance_type: linux
+#     scripts:
+#         - name: Install dependencies
+#           script: |
+#             npm install
+#             npm ci ci # equivalent of npm install for CI systems.
+#               # Requires package-lock.json or npm-shrinkwrap.json to be present
+#             cvm install 9.0.0
+#             cvm use 9.0.0
+#             npm install -g ionic
+#             ionic info        
+#     artifacts:
+#       - build/outputs/**/**/*.apk
 
   # workflows:
   #   ionic-cordova-android-workflow:
@@ -196,3 +197,38 @@ workflows:
   #             notify:
   #               success: true     # To not receive a notification when a build succeeds
   #               failure: false    # To not receive a notification when a build fails
+
+
+workflows:
+    android-workflow-id:
+    name: Android Sample Workflow
+	  instance_type: windows
+		
+		environment:
+		  android_signing:
+			- keystore_reference
+			
+		scripts:
+			- name: Install npm dependencies and update Cordova version
+			  script: | 
+				npm install
+				npm ci # equivalent of npm install for CI systems.
+					   # Requires package-lock.json or npm-shrinkwrap.json to be present
+				cvm install 9.0.0
+				cvm use 9.0.0 
+			- name: Setup Cordova Android platform
+			  script: | 
+				ionic cordova platform remove android --nosave
+				ionic cordova platform add android \
+				  --confirm \
+				  --no-interactive \
+				  --noresources 
+			- name: Build Android Cordova App
+			  script: | 
+				ionic cordova build android \
+				  --release \
+				  --no-interactive \
+				  --prod \
+				  --device
+		artifacts:
+			- platforms/android/app/build/outputs/**/*.apk
