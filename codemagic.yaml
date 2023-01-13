@@ -202,8 +202,8 @@
 workflows:
     android-workflow-id:
       name: Android Sample Workflow
-	    instance_type: Linux
-		
+	    instance_type: mac_mini
+      max_build_duration: 60  
 		environment:
 		  android_signing:
 			- keystore_reference
