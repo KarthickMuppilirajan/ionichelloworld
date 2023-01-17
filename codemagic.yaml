@@ -2,7 +2,7 @@ workflows:
   ionic-cordova-android-workflow:                   # workflow ID
     name: andriod-workflow       # workflow name displayed in Codemagic UI
     instance_type: mac_mini_m1   
-		scripts: |
+		scripts: 
 			 	npm install
 				npm ci # equivalent of npm install for CI systems.
 					   # Requires package-lock.json or npm-shrinkwrap.json to be present
